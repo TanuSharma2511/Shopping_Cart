@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <h1>CheckOut</h1>
+        <h4>Your Total: ${{total}}</h4>
+        <div id="charge-error"class="alert alert-danger {{# if noError}}hidden{{/if}}">
+        {{errMsg}}
+
+        </div>
+        <form action="/checkout" method="POST" id="checkout-form">
+       <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="{{stripePublishableKey}}"
+          data-name="Shopping Cart"
+          data-description="Shopping Cart using Nodejs And Stripe"
+          data-locale="auto">
+        </script>
+    <script>
+          // Hide default stripe button
+          document.getElementsByClassName('stripe-button-el')[0].style.display = 'none';
+        </script>    
+        
+        <button type="submit" class='btn btn-success'>Buy Now</button>
+        </form>
+    </div>
+</div>
+
